@@ -17,12 +17,11 @@ public class EmployeeController {
     EmployeeServiceImpl employeeServiceImpl;
 
     @PostMapping("/save")
-    public Employee saveEmployee(@Valid @RequestBody Employee employee){
+    public String saveEmployee(@Valid @RequestBody Employee employee){
         System.out.println("Inside Save method");
         System.out.println(employee.toString());
         employeeServiceImpl.saveEmployee(employee);
-        return employee;
-        //return "Employee Added with Id: "+ employee.getId();
+        return "Employee Added with Id: "+ employee.getId();
     }
 
     @GetMapping("/getAll")
